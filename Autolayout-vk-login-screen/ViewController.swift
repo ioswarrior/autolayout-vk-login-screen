@@ -19,11 +19,7 @@ class ViewController: UIViewController {
         setupScrollView()
         setupLogo()
         setupStackView()
-        
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
-        recognizer.numberOfTapsRequired = 1
-        recognizer.numberOfTouchesRequired = 1
-        scrollView.addGestureRecognizer(recognizer)
+        setupTapGestureRecognizer()
     }
     
     let logoImage: UIImageView = {
@@ -146,6 +142,13 @@ class ViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
+    }
+    
+    func setupTapGestureRecognizer() {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
+        recognizer.numberOfTapsRequired = 1
+        recognizer.numberOfTouchesRequired = 1
+        scrollView.addGestureRecognizer(recognizer)
     }
     
     @objc func touch() {
